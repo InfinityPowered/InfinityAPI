@@ -1,5 +1,6 @@
 package io.github.derechtepilz.infinity;
 
+import io.github.derechtepilz.infinity.annotation.InfinityPlugin;
 import org.jetbrains.annotations.ApiStatus;
 import org.slf4j.Logger;
 
@@ -47,6 +48,16 @@ public class Infinity {
      */
     public static Logger getInfinityLogger() {
         return adapter.getInfinityLogger();
+    }
+
+    /**
+     * Registers a plugin made with the Infinity API
+     *
+     * @param pluginClass The main class of your plugin
+     * @throws java.lang.IllegalArgumentException if the class isn't annotated with the {@link InfinityPlugin} annotation
+     */
+    public static void registerPlugin(Class<?> pluginClass) {
+        adapter.registerPlugin(pluginClass);
     }
 
 }
